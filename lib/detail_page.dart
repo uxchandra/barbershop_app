@@ -56,20 +56,7 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         ),
                       )),
-                  Positioned(
-                      top: 16,
-                      right: 16,
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            color: Colors.brown[300],
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20))),
-                        child: const Icon(
-                          Icons.share,
-                          color: Colors.white,
-                        ),
-                      )),
+                  const FavoriteButton(),
                   Container(
                       height: height * .07,
                       width: double.infinity,
@@ -279,6 +266,42 @@ class TitleDetail extends StatelessWidget {
           ),
           Text(detail, style: GoogleFonts.montserrat(fontSize: 12))
         ],
+      ),
+    );
+  }
+}
+
+class FavoriteButton extends StatefulWidget {
+  const FavoriteButton({Key? key}) : super(key: key);
+
+  @override
+  _FavoriteButtonState createState() => _FavoriteButtonState();
+}
+
+class _FavoriteButtonState extends State<FavoriteButton> {
+  bool isFavorite = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: 16,
+      right: 16,
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+            color: Colors.brown[200],
+            borderRadius: const BorderRadius.all(Radius.circular(20))),
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              isFavorite = !isFavorite;
+            });
+          },
+          child: Icon(
+            isFavorite ? Icons.favorite : Icons.favorite_border,
+            color: Colors.red,
+          ),
+        ),
       ),
     );
   }
