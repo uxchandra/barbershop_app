@@ -1,15 +1,15 @@
 class ShopInfo {
-  String nameShop;
-  String rating;
-  String openDays;
-  String location;
-  String address;
-  String description;
-  String openTime;
-  String ticketPrice;
-  String imageAsset;
-  String user;
-  String review;
+  final String nameShop;
+  final String rating;
+  final String openDays;
+  final String location;
+  final String address;
+  final String description;
+  final String openTime;
+  final String ticketPrice;
+  final String imageAsset;
+  final String user;
+  final String review;
 
   ShopInfo({
     required this.nameShop,
